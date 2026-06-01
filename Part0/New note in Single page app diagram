@@ -1,0 +1,12 @@
+sequenceDiagram
+    participant browser
+    participant server
+
+    Note the browser stores the new note locally and sends a request to get confirmation that the server has thereceived the new data. 
+
+    browser->>server: POST 	https://studies.cs.helsinki.fi/exampleapp/new_note_spa
+    activate server
+    server-->>browser: JSON - {"message":"note created"}
+    deactivate server
+
+    Note The browser now updates the DOM with the data it has in its own storage after confirming that the server is aware of the change.
