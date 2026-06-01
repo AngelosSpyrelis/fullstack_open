@@ -4,7 +4,7 @@ sequenceDiagram
 
     browser->>server: POST 	https://studies.cs.helsinki.fi/exampleapp/new_note
     activate server
-    server-->>browser: Redirect
+    server-->>browser: Redirect command is sent back to the server with the main page.
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/notes
@@ -14,12 +14,12 @@ sequenceDiagram
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.css
     activate server
-    server-->>browser: the CSS file
+    server-->>browser: CSS file
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/main.js
     activate server
-    server-->>browser: the JS file
+    server-->>browser: JS file
     deactivate server
 
     browser->>server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
@@ -27,4 +27,4 @@ sequenceDiagram
     server-->>browser: [{"content":"control","date":"2026-05-31T18:52:02.720Z"},{"content":"spa not.....]
     deactivate server
 
-    Note right of browser: The browser executes the callback function that renders the notes
+    Note: The browser executes the callback function that renders the notes on the DOM
