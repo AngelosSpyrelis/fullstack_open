@@ -19,7 +19,13 @@ const App = () => {
     return(
       <div>
         <p>
-          {props.name} {props.exercises}
+          {props.name1} {props.exercises1}
+        </p>
+        <p>
+          {props.name2} {props.exercises2}
+        </p>
+        <p>
+          {props.name3} {props.exercises3}
         </p>
       </div>
     );
@@ -42,16 +48,8 @@ const App = () => {
       course = {course}
       ></Header>
       <Content
-      name={part1}
-      exercises={exercises1}
-      ></Content>
-      <Content
-      name={part2}
-      exercises={exercises2}
-      ></Content>
-      <Content
-      name={part3}
-      exercises={exercises3}
+      names={[part1, part2, part3]}
+      exercises={[exercises1, exercises2, exercises3]}
       ></Content>
       <Total
       total = {exercises1 + exercises2 + exercises3}
