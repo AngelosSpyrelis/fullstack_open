@@ -1,0 +1,12 @@
+.notification{
+    background-color: grey;
+    padding: 10px 5px;
+    width: fit-content;
+    border-radius: 11px;
+}
+.notification.success{
+    border: 2px solid green;
+}
+.notification.error{
+    border: 2px solid red;
+}

@@ -1,4 +1,4 @@
-export const Numbers = ({persons, filter})=>{
+export const Numbers = ({persons, filter, onClick})=>{
     
     if(filter == ''){filter = '.*';}
     
@@ -6,7 +6,7 @@ export const Numbers = ({persons, filter})=>{
     
     return(
       <ul>
-        {persons.map(person=>{if(regex.test(person.name)){return <li key={person.name}>{person.name}: {person.number}</li>}})}
+        {persons.map(person=>{if(regex.test(person.name)){return <li key={person.name}>{person.name}: {person.number} <button onClick={onClick} data-id={person.id} data-name={person.name}>delete</button></li>}})}
       </ul>
     );
   }; 
