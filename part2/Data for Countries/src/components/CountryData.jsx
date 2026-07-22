@@ -1,23 +1,32 @@
 const BasicData = ({capitals, currencies, languages, area, flags, coatOfArms}) =>{
     return(
-        <div className="basic-data">
+        <div className="column-flex">
             <p>Capital: {capitals.join('/ ')}</p>
             <p>Area: {area}</p>
-            <ul>
-                {
-                    Object.entries(currencies).map(([key, values])=><li key={key}>{values.name} {values.symbol}</li>)
-                }
-            </ul>
-            <ul>
-                {
-                    Object.entries(languages).map(([key, value])=><li key={key}>{value}</li>)
-                }
-            </ul>
-            
             <div>
-                <img src={flags.png} alt={flags.alt} />
-                <img src={coatOfArms.png} alt={coatOfArms.alt} />
+                <h3>Currencies</h3>
+                <ul>
+                    {
+                        Object.entries(currencies).map(([key, values])=><li key={key}>{values.name} {values.symbol}</li>)
+                    }
+                </ul>
             </div>
+            <div>
+                <h3>Languages</h3>
+                <ul>
+                    {
+                        Object.entries(languages).map(([key, value])=><li key={key}>{value}</li>)
+                    }
+                </ul>
+            </div>
+            <div>
+                <h3>Flags</h3>
+                <div className="flags column-flex">
+                    <img src={flags.png} alt={flags.alt} />
+                    <img src={coatOfArms.png} alt={coatOfArms.alt} />
+                </div>
+            </div>
+            
         </div>
         
     );
@@ -25,8 +34,8 @@ const BasicData = ({capitals, currencies, languages, area, flags, coatOfArms}) =
 
 const CountryData = ({data}) => {
     if(data){
-        return(<div className="selected-country">
-            <h2>{data.name.common}</h2>
+        return(<div>
+            <h2 className="data">{data.name.common}</h2>
             <BasicData capitals={data.capital} currencies={data.currencies} languages={data.languages} area={data.area} flags={data.flags} coatOfArms={data.coatOfArms} />
         </div>);
     }

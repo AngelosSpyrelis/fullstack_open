@@ -1,12 +1,38 @@
-.notification{
-    background-color: grey;
-    padding: 10px 5px;
-    width: fit-content;
-    border-radius: 11px;
+body{
+    font-size: 15px;
 }
-.notification.success{
-    border: 2px solid green;
+
+h1{
+    font-size: 3em;
 }
-.notification.error{
-    border: 2px solid red;
+
+h2{
+    font-size: 2.5em;
+}
+
+h3{
+    font-size: 1.8em;
+}
+
+.column-flex{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 500px;
+}
+
+.data{
+    border-bottom: 2px solid black;
+    padding: 0 0 10px 0;
+}
+
+
+.query-results li{
+    display: flex;
+    width: 150px;
+    justify-content: space-between;
+}
+
+.flags img, .weather-icon{
+    max-width: 100px;
 }

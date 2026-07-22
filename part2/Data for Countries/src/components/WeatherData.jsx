@@ -7,10 +7,10 @@ export const WeatherData = ({data}) =>{
     }
     const temp = (data.main.temp-273.15).toFixed(2);
     return(
-        <div>
-            <h3>Weather in {data.name}</h3>
+        <div className="column-flex">
+            <h2>Weather in {data.name}</h2>
             <p>Temperature: {temp} Celsius</p>
-            <img src={" https://openweathermap.org/payload/api/media/file/"+data.weather[0].icon+".png"} />
+            <img className="weather-icon" src={" https://openweathermap.org/payload/api/media/file/"+data.weather[0].icon+".png"} />
             <p>Wind {data.wind.speed}m/s</p>
         </div>
     );
