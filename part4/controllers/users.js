@@ -54,7 +54,7 @@ usersRouter.post('/sign-up', async (request, response, next) => {
     }
 
     //Checking for duplicates here to avoid unnecessary salting and hashing.
-    const user = await User.findOne({ username : new RegExp(`^${username}`, 'i') });
+    const user = await User.findOne({ username : new RegExp(`^${username}$`, 'i') });
     if(user){
         return next({ name:'ValidationError', message: 'Error creating user' });
     }
