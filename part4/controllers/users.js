@@ -6,12 +6,18 @@ const Blog = require('../models/blogs');
 
 
 usersRouter.get('/', async (request, response) => {
-    const results = await User.find({});
+    if(process.env.NODE_ENV === 'test'){
+        
+        const results = await User.find({});
 
-    for(let i = 0; i < results.length; i++){
-        results[i].blogs = await Blog.find({ user: results[i]._id });
+        for(let i = 0; i < results.length; i++){
+            results[i].blogs = await Blog.find({ user: results[i]._id });
+        }
+        return response.status(200).json({ success: true, data: results });
     }
-    return response.status(200).json({ success: true, data: results });
+    else{
+        return next({ name:'AuthenticationError', message: 'This action is not allowed.' });
+    }
 });
 
 usersRouter.post('/sign-in', async (request, response, next) => {
