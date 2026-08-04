@@ -16,7 +16,9 @@ blogsRouter.get('/:id', async (request, response) => {
 blogsRouter.post('/', async (request, response) => {
 
     const blog = new Blog(request.body);
-
+    if(!blog.likes || typeof blog.likes !== 'number'){
+        blog.likes = 0;
+    }
     const result = await blog.save();
     const populatedResult = await result.populate('user');
     return response.status(201).json({ success: true, data: populatedResult });;
