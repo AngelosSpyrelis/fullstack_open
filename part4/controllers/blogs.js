@@ -38,10 +38,13 @@ blogsRouter.delete('/', async (request, response, next) => {
 });
 
 blogsRouter.put('/', async (request, response) => {
-
+    //removing the user to avoid overwriting it unnecessarily
+    delete request.body.user;
     const blog = await Blog.findById(request.body.id);
-    for(const [key, valye] in request.body){
-        if(request.body.hasOwnProperty(key){
+    //Removing the id
+    delete request.body.id;
+    for(const [key, value] of Object.entries(request.body)){
+        if(key in blog){
             blog[key] = value;
         }
     }
