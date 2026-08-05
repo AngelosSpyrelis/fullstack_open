@@ -37,10 +37,14 @@ blogsRouter.delete('/', async (request, response, next) => {
     return response.status(204).end();
 });
 
-blogsRouter.put('/:id', async (request, response) => {
+blogsRouter.put('/', async (request, response) => {
 
-    const blog = await Blog.findById(request.params.id);
-    blog.likes = request.body.likes;
+    const blog = await Blog.findById(request.body.id);
+    for(const [key, valye] in request.body){
+        if(request.body.hasOwnProperty(key){
+            blog[key] = value;
+        }
+    }
 
     const result = await blog.save();
     return response.status(201).json({ success: true, data: result });
