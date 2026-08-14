@@ -1,0 +1,38 @@
+.blog-wrapper{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.blog-wrapper h4{
+    margin: 0;
+}
+
+.blog{
+    display: none;
+    background-color: aliceblue;
+    z-index: 1;
+    position: relative;
+    overflow: hidden;
+    transition: height 0.3s linear;
+    width: fit-content;
+}
+
+.blogs-wrap{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    max-width: 1300px;
+}
+
+.action-buttons{
+    display: flex;
+    gap: 45px;
+}
+
+.blog.open{
+    display: block;
+    padding: 0 10%;
+}
