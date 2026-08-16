@@ -1,0 +1,17 @@
+import { useVoteControls } from '../../states/votes';
+
+const Buttons = () => {
+
+    const { voteGood, voteNeutral, voteBad } = useVoteControls();
+
+    return (
+        <div>
+            <h2>give feedback</h2>
+            <button onClick={ voteGood }>good</button>
+            <button onClick={ voteNeutral }>neutral</button>
+            <button onClick={ voteBad }>bad</button>
+        </div>
+    );
+};
+
+export default Buttons;
